@@ -23,6 +23,7 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets/'),
       '@constants': path.resolve(__dirname, './src/constants/'),
       '@libs': path.resolve(__dirname, './src/libs/'),
+      '@parts': path.resolve(__dirname, './src/parts'),
       '@components': path.resolve(__dirname, './src/components/'),
       '@store': path.resolve(__dirname, './src/store.ts'),
     },

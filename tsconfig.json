@@ -21,6 +21,7 @@
       "@assets/*": ["./src/assets/*"],
       "@libs/*": ["./src/libs/*"],
       "@constants/*": ["./src/constants/*"],
+      "@parts/*": ["./src/parts/*"],
       "@components": ["./src/components/index.ts"],
       "@store": ["./src/store.ts"]
     }
