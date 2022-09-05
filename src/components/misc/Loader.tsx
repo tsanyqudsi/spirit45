@@ -18,7 +18,7 @@ export const Loader = (): JSX.Element => {
       <span
         style={{
           fontSize: '0.8rem',
-          fontFamily: 'Montserrat, sans-serif',
+          fontFamily: 'Bungee, sans-serif',
           marginTop: '1rem',
           color: red[900],
         }}

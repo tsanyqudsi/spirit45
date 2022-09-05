@@ -5,7 +5,7 @@ import { grey } from '@mui/material/colors';
 
 export const Footer = (): JSX.Element => {
   return (
-    <Row bgcolor={grey[800]} paddingY='1rem'>
+    <Row bgcolor={'rgba(229, 140, 0, 1)'} paddingY='1rem'>
       <Box
         color='white'
         display={'flex'}
