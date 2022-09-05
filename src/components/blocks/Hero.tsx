@@ -14,6 +14,7 @@ interface HeroProps {
 
 export const Hero = (props: HeroProps): JSX.Element => {
   const scrollBy = useScrollBy();
+  const currentY = window.scrollY;
   const dimension = useWindowDimensions();
   return (
     <Box
@@ -42,7 +43,10 @@ export const Hero = (props: HeroProps): JSX.Element => {
             }}
             onClick={() =>
               scrollBy({
-                top: dimension.height ?? 500,
+                top:
+                  dimension.height !== null
+                    ? dimension.height - currentY
+                    : 500 - currentY,
                 left: 0,
                 behavior: 'smooth',
               })

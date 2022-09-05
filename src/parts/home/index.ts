@@ -1,3 +1,3 @@
 export { Hero } from './Hero';
-export { Proclamation } from './Proclamation';
+export { About } from './About';
 export { FlyingFeathers } from './FlyingFeathers';

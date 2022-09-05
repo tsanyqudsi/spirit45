@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { Default } from '@layouts/Default';
-import { Hero, Proclamation, FlyingFeathers } from '@parts/home';
+import { Hero, About, FlyingFeathers } from '@parts/home';
 
-const Index = (): JSX.Element => {
+const Home = (): JSX.Element => {
   return (
     <Default>
       <Hero />
-      <Proclamation />
+      <About />
       <FlyingFeathers />
     </Default>
   );
 };
 
-export default Index;
+export default Home;

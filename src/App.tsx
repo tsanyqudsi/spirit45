@@ -2,7 +2,7 @@ import * as React from 'react';
 import { BrowserRouter, useRoutes } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { MenuButton, Menu } from './components';
+import { MenuButton, Menu, Loader } from '@components';
 import routes from '~react-pages';
 
 const Routes = (): React.ReactElement | null => {
@@ -20,9 +20,9 @@ export const App = (): JSX.Element => {
         },
         transitions: {
           duration: {
-            standard: 1000,
-            enteringScreen: 1000,
-            leavingScreen: 1000,
+            standard: 950,
+            enteringScreen: 950,
+            leavingScreen: 950,
           },
         },
       }),
@@ -31,7 +31,7 @@ export const App = (): JSX.Element => {
 
   return (
     <ThemeProvider theme={theme}>
-      <React.Suspense fallback={<p>Loading...</p>}>
+      <React.Suspense fallback={<Loader />}>
         <MenuButton />
         <Menu />
         <BrowserRouter>

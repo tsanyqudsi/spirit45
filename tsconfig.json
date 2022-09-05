@@ -23,6 +23,7 @@
       "@constants/*": ["./src/constants/*"],
       "@parts/*": ["./src/parts/*"],
       "@components": ["./src/components/index.ts"],
+      "@typings": ["./src/typings/index.ts"],
       "@store": ["./src/store.ts"]
     }
   },

@@ -1,17 +1,24 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import pages from 'vite-plugin-pages';
-
 import path from 'path';
+import { RouteObject } from 'react-router';
+
+interface sp45_RouteObject extends RouteObject {
+  name?: string;
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     pages({
-      onRoutesGenerated: (routes) => {
+      onRoutesGenerated: (routes: sp45_RouteObject[]) => {
         routes.forEach((route) => {
-          if (route.path !== '/') route.path = route.path.toLowerCase();
+          route.name = route.path;
+          if (route.path === 'Home') {
+            route.path = '/';
+          }
           return route;
         });
       },
@@ -25,6 +32,7 @@ export default defineConfig({
       '@libs': path.resolve(__dirname, './src/libs/'),
       '@parts': path.resolve(__dirname, './src/parts'),
       '@components': path.resolve(__dirname, './src/components/'),
+      '@typings': path.resolve(__dirname, './src/typings'),
       '@store': path.resolve(__dirname, './src/store.ts'),
     },
   },

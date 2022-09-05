@@ -3,6 +3,7 @@ import { Box, useTheme } from '@mui/material';
 import { menuWidth } from '@constants/layouts';
 import { useAtomValue } from 'jotai';
 import { isMenuOpen } from '@store';
+import { Footer } from '@components';
 
 interface DefaultProps {
   children: React.ReactNode;
@@ -23,6 +24,7 @@ export const Default = (props: DefaultProps): JSX.Element => {
       }}
     >
       {props.children}
+      <Footer />
     </Box>
   );
 };
