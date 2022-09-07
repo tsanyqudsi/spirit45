@@ -17,8 +17,8 @@ export const Hero = (): JSX.Element => {
       <div>
         <Logo variant='h1' fontSize={'8rem'} />
         <Typography variant='subtitle1' fontSize={'1.4rem'}>
-          We&#39;re a not-so-new-kids-on-the-block game studio in Indonesia
-          striving to weave good and fun experiences.
+          Spirit45 is a game studio based in Indonesia. We love games! We only
+          wants to create games that we love and can be enjoy by Everyone.
         </Typography>
       </div>
     </HeroComponent>

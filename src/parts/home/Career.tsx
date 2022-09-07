@@ -18,12 +18,13 @@ const Proclamation = (): JSX.Element => {
         marginBottom='3rem'
         color={grey[800]}
       >
-        Proclamation
+        Join The Strive
       </Typography>
       <Box>
         <Typography variant='body1' fontSize='1.2rem' marginBottom='1rem'>
-          We&#39;re a newbie game studio in Indonesia striving to weave good and
-          fun experiences.
+          Don’t be shy - we’re always on the lookout for talented people to join
+          in on the fun. Whether you are rocking skills in anything from
+          programming to Subway Surfing, let us know what you’ve got!
         </Typography>
         <Typography variant='body1' fontSize='1.2rem'>
           Matters concerning the development of games, etc., will be carried out

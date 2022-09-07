@@ -4,7 +4,7 @@ import { Typography, TypographyProps } from '@mui/material';
 export const Logo = (props: TypographyProps): JSX.Element => {
   return (
     <Typography fontFamily={'Bungee, sans-serif'} fontWeight='600' {...props}>
-      SP45
+      SPIRIT45
     </Typography>
   );
 };

@@ -10,13 +10,8 @@ export const Polaroid = (props: PolaroidProps): JSX.Element => {
   const { children, ...attr } = props;
 
   return (
-    <Box className={styles.polaroid} {...attr}>
-      <img
-        src={props.src}
-        alt={props.caption}
-        title={props.caption}
-        style={{ userSelect: 'none' }}
-      />
+    <Box className={styles.polaroid} {...attr} sx={{ userSelect: 'none' }}>
+      <img src={props.src} alt={props.caption} title={props.caption} />
     </Box>
   );
 };

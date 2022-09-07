@@ -1,7 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
-import { DisplayCard, RowImageBox, Row } from '@components';
-import image from '@assets/images/backgroundHero.jpg';
+import { DisplayCard, Row } from '@components';
 
 const Proclamation = (): JSX.Element => {
   return (
@@ -51,7 +50,6 @@ export const About = (): JSX.Element => {
   return (
     <Row minHeight='50vh'>
       <Proclamation />
-      <RowImageBox src={image} flexBasis='50%' />
     </Row>
   );
 };
