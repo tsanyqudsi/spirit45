@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Typography, TypographyProps } from '@mui/material';
 // import styles from '@assets/styles/styles.module.css';
 

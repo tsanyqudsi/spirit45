@@ -1,13 +1,12 @@
-import * as React from 'react';
+import { useTheme, Drawer, MenuList, MenuItem as Item } from '@mui/material';
 import { capitalize } from 'lodash';
-import { Drawer, MenuList, MenuItem as Item } from '@mui/material';
-import { red } from '@mui/material/colors';
-
 import { useAtomValue } from 'jotai';
 import { isMenuOpen } from '@store';
 
 import { getSortedRoutes } from '@libs/getSortedRoutes';
+import { isPathIncluded } from '@libs/isPathIncluded';
 import { menuWidth } from '@constants/layouts';
+import { main } from '@constants/hideMenu';
 
 const sortedRoutes = getSortedRoutes();
 
@@ -19,7 +18,10 @@ const MenuItem = (): JSX.Element => {
       }}
     >
       {sortedRoutes.map((route): JSX.Element | undefined => {
-        if (route.path != null)
+        if (
+          route.path !== undefined &&
+          isPathIncluded(route.path, main).length === 0
+        )
           return (
             <Item
               sx={{
@@ -39,8 +41,9 @@ const MenuItem = (): JSX.Element => {
   );
 };
 
-export const Menu = (): JSX.Element => {
+export const MainMenu = (): JSX.Element => {
   const menuState = useAtomValue(isMenuOpen);
+  const { primary, common } = useTheme().palette;
 
   return (
     <Drawer
@@ -50,8 +53,8 @@ export const Menu = (): JSX.Element => {
       PaperProps={{
         sx: {
           width: { xs: '100vw', lg: menuWidth },
-          backgroundColor: 'white',
-          color: red[900],
+          backgroundColor: common.white,
+          color: primary.main,
           display: 'flex',
           alignItems: 'center',
           flexDirection: 'column',

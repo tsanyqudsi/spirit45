@@ -4,19 +4,28 @@ import { setHideOnMobile } from '@libs/setHideOnMobile';
 
 interface RowProps extends BoxProps {
   hideOnMobile?: number[];
-  children: React.ReactElement[];
+  children: React.ReactElement[] | React.ReactElement;
 }
 
-export const Row = (props: RowProps): JSX.Element | null => {
-  const { children, hideOnMobile, ...attr } = props;
+export const Row = ({ ...props }: RowProps): JSX.Element => {
+  const { children, hideOnMobile, justifyContent, ...attr } = props;
 
-  if (React.Children.count(props.children) < 3)
-    return (
-      <Box paddingY='3rem' paddingX='5rem' display='flex' {...attr}>
-        {hideOnMobile !== undefined
-          ? setHideOnMobile(children, hideOnMobile)
-          : children}
-      </Box>
-    );
-  else return null;
+  const editedChildren = Array.isArray(children)
+    ? children.map((child) => {
+        return React.cloneElement(child, {});
+      })
+    : children;
+  return (
+    <Box
+      {...attr}
+      display='flex'
+      justifyContent={
+        React.Children.count(editedChildren) === 1 ? 'center' : justifyContent
+      }
+    >
+      {hideOnMobile !== undefined && Array.isArray(editedChildren)
+        ? setHideOnMobile(editedChildren, hideOnMobile)
+        : editedChildren}
+    </Box>
+  );
 };

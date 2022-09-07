@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Box, IconButton } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 import { useScrollBy } from 'react-use-window-scroll';
@@ -41,6 +40,7 @@ export const Hero = (props: HeroProps): JSX.Element => {
             sx={{
               border: '2px solid rgba(255,255,255,0.8)',
             }}
+            title='clickToNextComponent'
             onClick={() =>
               scrollBy({
                 top:

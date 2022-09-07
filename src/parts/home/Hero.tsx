@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { Typography } from '@mui/material';
+import { Typography, useTheme } from '@mui/material';
 import { Hero as HeroComponent, Logo } from '@components';
 
 const IconCaption = (): JSX.Element => {
@@ -7,9 +6,11 @@ const IconCaption = (): JSX.Element => {
 };
 
 export const Hero = (): JSX.Element => {
+  const { primary } = useTheme().palette;
+
   return (
     <HeroComponent
-      bgColor='rgba(220,0,43,255)'
+      bgColor={primary.main}
       color='white'
       iconCaption={<IconCaption />}
     >

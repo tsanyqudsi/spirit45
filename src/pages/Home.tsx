@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Default } from '@layouts/Default';
 import { Hero, About, FlyingFeathers } from '@parts/home';
 

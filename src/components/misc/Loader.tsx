@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Circle from 'react-spinners/CircleLoader';
 import { red } from '@mui/material/colors';
 

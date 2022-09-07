@@ -1,9 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom/client';
 
 import { App } from './App';
-import '@assets/fonts/roboto';
-import '@assets/fonts/bungee';
+import '@assets/fonts';
 import '@assets/styles/index.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

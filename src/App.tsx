@@ -2,7 +2,7 @@ import * as React from 'react';
 import { BrowserRouter, useRoutes } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { MenuButton, Menu, Loader } from '@components';
+import { MenuButton, Loader, MainMenu } from '@components';
 import routes from '~react-pages';
 
 const Routes = (): React.ReactElement | null => {
@@ -15,8 +15,25 @@ export const App = (): JSX.Element => {
   const theme = React.useMemo(
     () =>
       createTheme({
+        typography: {
+          fontFamily: [
+            'MontserratVariable',
+            '"Helvetica Neue"',
+            'Arial',
+            'sans-serif',
+            '"Apple Color Emoji"',
+            '"Segoe UI Emoji"',
+            '"Segoe UI Symbol"',
+          ].join(','),
+        },
         palette: {
           mode: prefersDarkMode ? 'dark' : 'light',
+          primary: {
+            main: '#dc002c',
+          },
+          secondary: {
+            main: '#f8520b',
+          },
         },
         transitions: {
           duration: {
@@ -33,7 +50,7 @@ export const App = (): JSX.Element => {
     <ThemeProvider theme={theme}>
       <React.Suspense fallback={<Loader />}>
         <MenuButton />
-        <Menu />
+        <MainMenu />
         <BrowserRouter>
           <Routes />
         </BrowserRouter>
