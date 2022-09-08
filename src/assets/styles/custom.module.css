@@ -7,15 +7,17 @@
   -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(0, 0, 0, 0.1);
+  max-width: 60%;
 }
 
 .polaroid img {
   border: 1px solid rgba(0, 0, 0, 0.1);
   filter: sepia(46%);
+  width: 100%;
 }
 
 .polaroid:after {
-  color: #333;
+  color: rgba(0, 0, 0, 0.6);
   font-size: 2rem;
   min-height: 4rem;
   display: flex;

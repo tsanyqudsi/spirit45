@@ -4,8 +4,11 @@ body {
 }
 
 .menuButton {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
   z-index: 1500;
+  position: sticky;
+  height: 0;
+  top: 0;
 }

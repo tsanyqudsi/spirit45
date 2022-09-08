@@ -10,6 +10,11 @@ interface sp45_RouteObject extends RouteObject {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  esbuild: {
+    define: {
+      this: 'window',
+    },
+  },
   plugins: [
     react(),
     pages({

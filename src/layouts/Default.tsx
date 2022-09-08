@@ -12,14 +12,19 @@ export const Default = (props: DefaultProps): JSX.Element => {
   const menuIsOpen = useAtomValue(isMenuOpen);
 
   const theme = useTheme();
+
   return (
     <Box
       marginRight={menuIsOpen ? menuWidth : 0}
+      marginLeft={menuIsOpen ? `-${menuWidth}` : 0}
       sx={{
-        transition: theme.transitions.create(['margin-right', 'transform'], {
-          duration: theme.transitions.duration.standard,
-          delay: menuIsOpen ? 20 : 0,
-        }),
+        transition: theme.transitions.create(
+          ['margin-right', 'margin-left', 'transform'],
+          {
+            duration: theme.transitions.duration.standard,
+            delay: menuIsOpen ? 3 : -10,
+          }
+        ),
       }}
     >
       {props.children}

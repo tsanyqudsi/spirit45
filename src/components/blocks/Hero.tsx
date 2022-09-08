@@ -1,7 +1,8 @@
+import * as React from 'react';
 import { Box, IconButton } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 import { useScrollBy } from 'react-use-window-scroll';
-import useWindowDimensions from '@libs/useWindowDimensions';
+import { Rect, useRect } from 'react-use-rect';
 
 interface HeroProps {
   children: React.ReactNode;
@@ -12,9 +13,23 @@ interface HeroProps {
 }
 
 export const Hero = (props: HeroProps): JSX.Element => {
+  const [rect, setRect] = React.useState<Rect | null>(null);
+  const [scrolling, setScrolling] = React.useState<number>(0);
+  const [currentY, setCurrentY] = React.useState<number>(0);
+  const [rectRef] = useRect(setRect);
   const scrollBy = useScrollBy();
-  const currentY = window.scrollY;
-  const dimension = useWindowDimensions();
+
+  React.useEffect(() => {
+    const onScroll = (event: Event): void => {
+      const target = event.target as Document;
+      setScrolling(target?.documentElement.scrollTop);
+    };
+
+    window.addEventListener('scroll', onScroll);
+    setCurrentY(window.scrollY);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [scrolling]);
+
   return (
     <Box
       width='full'
@@ -25,6 +40,7 @@ export const Hero = (props: HeroProps): JSX.Element => {
       justifyContent='space-between'
       alignItems='center'
       color={props.color ?? 'inherit'}
+      ref={rectRef}
     >
       <Box>{props.banner}</Box>
       {props.children}
@@ -43,10 +59,7 @@ export const Hero = (props: HeroProps): JSX.Element => {
             title='clickToNextComponent'
             onClick={() =>
               scrollBy({
-                top:
-                  dimension.height !== null
-                    ? dimension.height - currentY
-                    : 500 - currentY,
+                top: rect !== null ? rect.height - currentY : 500 - currentY,
                 left: 0,
                 behavior: 'smooth',
               })

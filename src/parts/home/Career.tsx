@@ -1,58 +1,31 @@
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
-import { DisplayCard, RowImageBox, Row } from '@components';
-import image from '@assets/images/backgroundHero.jpg';
+import { DisplayCard, Row } from '@components';
 
-const Proclamation = (): JSX.Element => {
+export const Career = (): JSX.Element => {
   return (
-    <DisplayCard
-      useCardPadding
-      buttonText='About Us'
-      buttonColor='secondary'
-      flexBasis={'50%'}
-    >
-      <Typography
-        variant='h2'
-        textAlign='center'
-        fontWeight='700'
-        marginBottom='3rem'
-        color={grey[800]}
+    <Row minHeight='50vh'>
+      <DisplayCard
+        useCardPadding
+        buttonText='About Us'
+        buttonColor='secondary'
+        flexBasis={'50%'}
       >
-        Join The Strive
-      </Typography>
-      <Box>
+        <Typography
+          variant='h2'
+          textAlign='center'
+          fontWeight='700'
+          marginBottom='3rem'
+          color={grey[800]}
+        >
+          Join The Journey
+        </Typography>
         <Typography variant='body1' fontSize='1.2rem' marginBottom='1rem'>
           Don’t be shy - we’re always on the lookout for talented people to join
           in on the fun. Whether you are rocking skills in anything from
           programming to Subway Surfing, let us know what you’ve got!
         </Typography>
-        <Typography variant='body1' fontSize='1.2rem'>
-          Matters concerning the development of games, etc., will be carried out
-          in a conscientious manner and as fun as possible.
-        </Typography>
-      </Box>
-      <Box textAlign='right' width={'100%'} marginTop='3rem'>
-        <Typography variant='body1' fontSize='1.1rem'>
-          Jakarta, Day 17 Month 9 Year 2022.
-        </Typography>
-        <Typography
-          variant='body1'
-          fontSize='1.1rem'
-          marginTop='2rem'
-          fontWeight={'600'}
-        >
-          SP45_
-        </Typography>
-      </Box>
-    </DisplayCard>
-  );
-};
-
-export const About = (): JSX.Element => {
-  return (
-    <Row minHeight='50vh'>
-      <Proclamation />
-      <RowImageBox src={image} flexBasis='50%' />
+      </DisplayCard>
     </Row>
   );
 };

@@ -60,6 +60,7 @@ export const MainMenu = (): JSX.Element => {
           flexDirection: 'column',
           paddingTop: { xs: '5rem', lg: '3rem' },
           fontSize: '1.4rem',
+          borderLeft: '1px solid rgba(0,0,0,0.2)',
         },
       }}
     >

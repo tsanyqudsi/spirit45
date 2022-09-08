@@ -1,5 +1,5 @@
 import { Default } from '@layouts/Default';
-import { Hero, About, FlyingFeathers } from '@parts/home';
+import { Hero, About, FlyingFeathers, Career } from '@parts/home';
 
 const Home = (): JSX.Element => {
   return (
@@ -7,6 +7,7 @@ const Home = (): JSX.Element => {
       <Hero />
       <About />
       <FlyingFeathers />
+      <Career />
     </Default>
   );
 };
