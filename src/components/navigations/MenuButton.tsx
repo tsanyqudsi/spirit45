@@ -2,15 +2,25 @@ import * as React from 'react';
 import { Squash } from 'hamburger-react';
 import { useTheme } from '@mui/material';
 import { useAtom } from 'jotai';
-import { isMenuOpen } from '@store';
+import { isMenuOpenAtom } from '@store';
 import { getColor } from '@libs/getColor';
+import { useLocation } from 'react-router';
 
 export const MenuButton = (): JSX.Element => {
-  const [state, setState] = useAtom(isMenuOpen);
+  const [state, setState] = useAtom(isMenuOpenAtom);
   const [color, setColor] = React.useState<string>('');
+  const [pathName, setPathName] = React.useState<string>('');
   const { primary } = useTheme().palette;
 
   const [scrolling, setScrolling] = React.useState<number>(0);
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (pathName !== location.pathname) {
+      setPathName(location.pathname);
+      setState(false);
+    }
+  }, [location]);
 
   React.useEffect(() => {
     const onScroll = (event: Event): void => {

@@ -48,7 +48,7 @@ const Proclamation = (): JSX.Element => {
 
 export const About = (): JSX.Element => {
   return (
-    <Row minHeight='50vh'>
+    <Row minHeight='50vh' id={'about'}>
       <Proclamation />
     </Row>
   );

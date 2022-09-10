@@ -5,7 +5,7 @@ export const Footer = (): JSX.Element => {
   const { secondary, common } = useTheme().palette;
 
   return (
-    <Row bgcolor={secondary.main} paddingY='1rem' paddingX='5rem'>
+    <Row bgcolor={secondary.main} paddingY='1rem' paddingX='5rem' id={'footer'}>
       <Box
         color={common.white}
         display={'flex'}

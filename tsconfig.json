@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "types": ["vite/client", "vite-plugin-pages/client-react"],
+    "types": [
+      "vite/client",
+      "vite-plugin-pages/client-react",
+      "@modyfi/vite-plugin-yaml/modules"
+    ],
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
@@ -20,7 +24,6 @@
       "@layouts/*": ["./src/layouts/*"],
       "@assets/*": ["./src/assets/*"],
       "@libs/*": ["./src/libs/*"],
-      "@constants/*": ["./src/constants/*"],
       "@parts/*": ["./src/parts/*"],
       "@components": ["./src/components/index.ts"],
       "@typings": ["./src/typings/index.ts"],

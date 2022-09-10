@@ -1,12 +1,17 @@
-import { useTheme, Drawer, MenuList, MenuItem as Item } from '@mui/material';
+import {
+  useTheme,
+  Drawer,
+  MenuList,
+  MenuItem as Item,
+  Link,
+} from '@mui/material';
 import { capitalize } from 'lodash';
 import { useAtomValue } from 'jotai';
-import { isMenuOpen } from '@store';
+import { menuWidth, main, isMenuOpenAtom } from '@store';
 
 import { getSortedRoutes } from '@libs/getSortedRoutes';
 import { isPathIncluded } from '@libs/isPathIncluded';
-import { menuWidth } from '@constants/layouts';
-import { main } from '@constants/hideMenu';
+import { Link as RouterLink } from 'react-router-dom';
 
 const sortedRoutes = getSortedRoutes();
 
@@ -19,22 +24,35 @@ const MenuItem = (): JSX.Element => {
     >
       {sortedRoutes.map((route): JSX.Element | undefined => {
         if (
-          route.path !== undefined &&
+          route.name !== undefined &&
           isPathIncluded(route.path, main).length === 0
-        )
+        ) {
+          const path =
+            route.name.toLowerCase() !== 'home'
+              ? `/${route.name.toLowerCase()}`
+              : '/';
           return (
-            <Item
+            <Link
+              component={RouterLink}
+              to={path}
+              key={`route-to-${route.name}`}
               sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                fontWeight: 500,
-                letterSpacing: '0.1rem',
+                textDecoration: 'none',
               }}
-              key={`route-to-${route.path}`}
             >
-              {capitalize(route.name)}
-            </Item>
+              <Item
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  fontWeight: 500,
+                  letterSpacing: '0.1rem',
+                }}
+              >
+                {capitalize(route.name)}
+              </Item>
+            </Link>
           );
+        }
         return undefined;
       })}
     </MenuList>
@@ -42,7 +60,7 @@ const MenuItem = (): JSX.Element => {
 };
 
 export const MainMenu = (): JSX.Element => {
-  const menuState = useAtomValue(isMenuOpen);
+  const menuState = useAtomValue(isMenuOpenAtom);
   const { primary, common } = useTheme().palette;
 
   return (

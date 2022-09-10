@@ -4,7 +4,7 @@ import { DisplayCard, Row } from '@components';
 
 export const Career = (): JSX.Element => {
   return (
-    <Row minHeight='50vh'>
+    <Row minHeight='50vh' id={'career'}>
       <DisplayCard
         useCardPadding
         buttonText='About Us'

@@ -1,7 +1,6 @@
 import { Box, useTheme } from '@mui/material';
-import { menuWidth } from '@constants/layouts';
 import { useAtomValue } from 'jotai';
-import { isMenuOpen } from '@store';
+import { isMenuOpenAtom, menuWidth } from '@store';
 import { Footer } from '@components';
 
 interface DefaultProps {
@@ -9,7 +8,7 @@ interface DefaultProps {
 }
 
 export const Default = (props: DefaultProps): JSX.Element => {
-  const menuIsOpen = useAtomValue(isMenuOpen);
+  const menuIsOpen = useAtomValue(isMenuOpenAtom);
 
   const theme = useTheme();
 

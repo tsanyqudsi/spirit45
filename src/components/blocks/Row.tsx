@@ -5,16 +5,20 @@ import { setHideOnMobile } from '@libs/setHideOnMobile';
 interface RowProps extends BoxProps {
   hideOnMobile?: number[];
   children: React.ReactElement[] | React.ReactElement;
+  id: string;
 }
 
 export const Row = ({ ...props }: RowProps): JSX.Element => {
-  const { children, hideOnMobile, justifyContent, ...attr } = props;
+  const { id, children, hideOnMobile, justifyContent, ...attr } = props;
 
   const editedChildren = Array.isArray(children)
-    ? children.map((child) => {
-        return React.cloneElement(child, {});
+    ? children.map((child, index) => {
+        return React.cloneElement(child, {
+          key: `${id}-${index}`,
+        });
       })
     : children;
+
   return (
     <Box
       {...attr}

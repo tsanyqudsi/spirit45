@@ -49,9 +49,9 @@ export const App = (): JSX.Element => {
   return (
     <ThemeProvider theme={theme}>
       <React.Suspense fallback={<Loader />}>
-        <MenuButton />
-        <MainMenu />
         <BrowserRouter>
+          <MenuButton />
+          <MainMenu />
           <Routes />
         </BrowserRouter>
       </React.Suspense>

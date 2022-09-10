@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import pages from 'vite-plugin-pages';
 import path from 'path';
 import { RouteObject } from 'react-router';
+import viteYAML from '@modyfi/vite-plugin-yaml';
 
 interface sp45_RouteObject extends RouteObject {
   name?: string;
@@ -17,6 +18,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    viteYAML(),
     pages({
       onRoutesGenerated: (routes: sp45_RouteObject[]) => {
         routes.forEach((route) => {
@@ -33,7 +35,6 @@ export default defineConfig({
     alias: {
       '@layouts': path.resolve(__dirname, './src/layouts/'),
       '@assets': path.resolve(__dirname, './src/assets/'),
-      '@constants': path.resolve(__dirname, './src/constants/'),
       '@libs': path.resolve(__dirname, './src/libs/'),
       '@parts': path.resolve(__dirname, './src/parts'),
       '@components': path.resolve(__dirname, './src/components/'),
