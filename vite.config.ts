@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite';
+import { RouteObject } from 'react-router';
 import react from '@vitejs/plugin-react';
 import pages from 'vite-plugin-pages';
 import path from 'path';
-import { RouteObject } from 'react-router';
 import viteYAML from '@modyfi/vite-plugin-yaml';
+import mdx from '@mdx-js/rollup';
+import remarkGFM from 'remark-gfm';
 
 interface sp45_RouteObject extends RouteObject {
   name?: string;
@@ -17,6 +19,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    mdx({ remarkPlugins: [remarkGFM] }),
     react(),
     viteYAML(),
     pages({

@@ -1,67 +1,15 @@
-import {
-  useTheme,
-  Drawer,
-  MenuList,
-  MenuItem as Item,
-  Link,
-} from '@mui/material';
-import { capitalize } from 'lodash';
-import { useAtomValue } from 'jotai';
-import { menuWidth, main, isMenuOpenAtom } from '@store';
-
+import { useTheme, Drawer } from '@mui/material';
 import { getSortedRoutes } from '@libs/getSortedRoutes';
-import { isPathIncluded } from '@libs/isPathIncluded';
-import { Link as RouterLink } from 'react-router-dom';
 
-const sortedRoutes = getSortedRoutes();
-
-const MenuItem = (): JSX.Element => {
-  return (
-    <MenuList
-      sx={{
-        width: '100%',
-      }}
-    >
-      {sortedRoutes.map((route): JSX.Element | undefined => {
-        if (
-          route.name !== undefined &&
-          isPathIncluded(route.path, main).length === 0
-        ) {
-          const path =
-            route.name.toLowerCase() !== 'home'
-              ? `/${route.name.toLowerCase()}`
-              : '/';
-          return (
-            <Link
-              component={RouterLink}
-              to={path}
-              key={`route-to-${route.name}`}
-              sx={{
-                textDecoration: 'none',
-              }}
-            >
-              <Item
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  fontWeight: 500,
-                  letterSpacing: '0.1rem',
-                }}
-              >
-                {capitalize(route.name)}
-              </Item>
-            </Link>
-          );
-        }
-        return undefined;
-      })}
-    </MenuList>
-  );
-};
+import { useAtomValue } from 'jotai';
+import { menuWidth, isMenuOpenAtom } from '@store';
+import { MenuItem } from './parts/MenuItem';
+import { grey } from '@mui/material/colors';
 
 export const MainMenu = (): JSX.Element => {
   const menuState = useAtomValue(isMenuOpenAtom);
   const { primary, common } = useTheme().palette;
+  const sortedRoutes = getSortedRoutes();
 
   return (
     <Drawer
@@ -82,7 +30,16 @@ export const MainMenu = (): JSX.Element => {
         },
       }}
     >
-      <MenuItem />
+      <MenuItem
+        routes={sortedRoutes}
+        checkers={['policies']}
+        isExcluded={true}
+      />
+      <MenuItem
+        routes={sortedRoutes}
+        checkers={['policies']}
+        colors={grey[400]}
+      />
     </Drawer>
   );
 };

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { map } from 'lodash';
 import {
   Accordion,
   AccordionSummary,
@@ -10,21 +9,15 @@ import {
 import { ExpandMore } from '@mui/icons-material';
 import { Row } from '@components';
 import { jobs } from '@store';
+import { grey } from '@mui/material/colors';
 
-interface JobProps extends AccordionProps {
+interface JobProps extends Omit<AccordionProps, 'children'> {
   position: string;
   location: string;
   responsibilities: string[];
   qualifications: string[];
   index: number;
 }
-
-const jobOpportunities: { [key: string]: any } = map(
-  jobs,
-  (value: { [key: string]: any }) => {
-    return value.default;
-  }
-);
 
 const Job = (props: JobProps): JSX.Element => {
   const {
@@ -36,14 +29,16 @@ const Job = (props: JobProps): JSX.Element => {
     ...attr
   } = props;
   return (
-    <Accordion {...attr}>
+    <Accordion {...attr} sx={{ width: '100%', backgroundColor: grey[800] }}>
       <AccordionSummary
         expandIcon={<ExpandMore />}
         aria-controls={`panel${index}bh-content`}
         id={`panel${index}bh-header`}
       >
-        <Typography sx={{ width: '33%', flexShrink: 0 }}>{position}</Typography>
-        <Typography sx={{ color: 'text.secondary' }}>{location}</Typography>
+        <Typography sx={{ flexGrow: 1 }}>{position}</Typography>
+        <Typography sx={{ color: 'text.secondary', marginRight: '2rem' }}>
+          {location}
+        </Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>Requirements</Typography>
@@ -79,14 +74,18 @@ export const Jobs = (): JSX.Element => {
       setExpanded(isExpanded ? panel : false);
     };
 
-  if (jobOpportunities.length > 0)
+  if (jobs.length > 0)
     return (
-      <Row marginY='4rem' id={'jobOpportunities'}>
-        {jobOpportunities.map((value: JobProps, index: number) => {
+      <Row marginY='4rem' marginX={['1rem', '5rem']} id={'jobOpportunities'}>
+        {jobs.map((value, index: number) => {
           return (
             <Job
               key={`career-${index}`}
-              {...value}
+              responsibilities={value.responsibilities}
+              qualifications={value.qualifications}
+              position={value.position}
+              location={value.location}
+              index={index}
               onChange={handleChange(`panel${index}`)}
               expanded={expanded === `panel${index}`}
             />
