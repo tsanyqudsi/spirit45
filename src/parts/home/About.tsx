@@ -12,6 +12,7 @@ const Proclamation = (): JSX.Element => {
     >
       <Typography
         variant='h2'
+        fontSize={['3rem', '4rem']}
         textAlign='center'
         fontWeight='700'
         marginBottom='3rem'

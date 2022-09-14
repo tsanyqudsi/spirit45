@@ -19,6 +19,8 @@ const getMenuItems = (params: MenuItemProps): React.ReactNode => {
       isPathIncluded(route.path, params.checkers, params.isExcluded).length ===
         0
     ) {
+      if (params.useChildren === true) {
+      }
       const path =
         route.name.toLowerCase() !== 'home'
           ? `/${route.name.toLowerCase()}`

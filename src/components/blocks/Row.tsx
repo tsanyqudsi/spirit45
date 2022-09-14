@@ -21,8 +21,10 @@ export const Row = ({ ...props }: RowProps): JSX.Element => {
 
   return (
     <Box
+      paddingX={'3rem'}
       {...attr}
       display='flex'
+      flexWrap={'wrap'}
       justifyContent={
         React.Children.count(editedChildren) === 1 ? 'center' : justifyContent
       }

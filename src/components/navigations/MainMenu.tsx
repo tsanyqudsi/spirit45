@@ -32,14 +32,14 @@ export const MainMenu = (): JSX.Element => {
     >
       <MenuItem
         routes={sortedRoutes}
-        checkers={['policies']}
+        checkers={['policies', 'careers', 'games']}
         isExcluded={true}
       />
-      <MenuItem
+      {/* <MenuItem
         routes={sortedRoutes}
         checkers={['policies']}
         colors={grey[400]}
-      />
+      /> */}
     </Drawer>
   );
 };

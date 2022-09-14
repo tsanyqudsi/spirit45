@@ -76,20 +76,28 @@ export const Jobs = (): JSX.Element => {
 
   if (jobs.length > 0)
     return (
-      <Row marginY='4rem' marginX={['1rem', '5rem']} id={'jobOpportunities'}>
+      <Row
+        marginY='4rem'
+        marginX={['1rem', '5rem']}
+        id={'jobOpportunities'}
+        flexDirection='column'
+        justifyContent={'flex-start'}
+      >
         {jobs.map((value, index: number) => {
-          return (
-            <Job
-              key={`career-${index}`}
-              responsibilities={value.responsibilities}
-              qualifications={value.qualifications}
-              position={value.position}
-              location={value.location}
-              index={index}
-              onChange={handleChange(`panel${index}`)}
-              expanded={expanded === `panel${index}`}
-            />
-          );
+          if (value.isOpen === true)
+            return (
+              <Job
+                key={`career-${index}`}
+                responsibilities={value.responsibilities}
+                qualifications={value.qualifications}
+                position={value.position}
+                location={value.location}
+                index={index}
+                onChange={handleChange(`panel${index}`)}
+                expanded={expanded === `panel${index}`}
+              />
+            );
+          return <></>;
         })}
       </Row>
     );
