@@ -29,19 +29,19 @@ const Job = (props: JobProps): JSX.Element => {
     ...attr
   } = props;
   return (
-    <Accordion {...attr} sx={{ width: '100%', backgroundColor: grey[800] }}>
+    <Accordion {...attr} sx={{ width: '100%', backgroundColor: grey[900] }}>
       <AccordionSummary
         expandIcon={<ExpandMore />}
         aria-controls={`panel${index}bh-content`}
         id={`panel${index}bh-header`}
       >
-        <Typography sx={{ flexGrow: 1 }}>{position}</Typography>
-        <Typography sx={{ color: 'text.secondary', marginRight: '2rem' }}>
+        <Typography sx={{ color: 'white', flexGrow: 1 }}>{position}</Typography>
+        <Typography sx={{ color: 'white', marginRight: '2rem' }}>
           {location}
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>Requirements</Typography>
+        <Typography color={'white'}>Requirements</Typography>
         <ul>
           {responsibilities.map((responsibility, index) => {
             return (
@@ -51,7 +51,7 @@ const Job = (props: JobProps): JSX.Element => {
             );
           })}
         </ul>
-        <Typography>Qualifications</Typography>
+        <Typography color={'white'}>Qualifications</Typography>
         <ul>
           {qualifications.map((qualification, index) => {
             return (

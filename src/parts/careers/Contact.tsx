@@ -3,13 +3,8 @@ import { MailTo, Row } from '@components';
 
 export const Contact = (): JSX.Element => {
   return (
-    <Row
-      id={'interested'}
-      marginY={'4rem'}
-      flexDirection={'column'}
-      alignItems={'center'}
-    >
-      <Typography fontSize={'2rem'}>
+    <Row id={'interested'} marginY={'4rem'} alignItems={'center'}>
+      <Typography fontSize={['1.2rem', '2rem']} textAlign='center'>
         Interested ? Send your CV to
         <MailTo
           margin={'0.6rem'}
