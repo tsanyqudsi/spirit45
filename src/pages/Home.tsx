@@ -1,5 +1,5 @@
 import { Default } from '@layouts/Default';
-import { Jobs, Shoutout } from '@parts/careers';
+import { Contact, Jobs, Shoutout } from '@parts/careers';
 import { Hero, About, FlyingFeathers } from '@parts/home';
 
 const Home = (): JSX.Element => {
@@ -10,6 +10,7 @@ const Home = (): JSX.Element => {
       <FlyingFeathers />
       <Shoutout />
       <Jobs />
+      <Contact />
     </Default>
   );
 };

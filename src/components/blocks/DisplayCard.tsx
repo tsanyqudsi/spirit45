@@ -3,6 +3,7 @@ import { Box, BoxProps, Button } from '@mui/material';
 interface DisplayCardProps extends BoxProps {
   useCardPadding?: boolean;
   buttonText: string;
+  buttonOnClick?: React.MouseEventHandler<HTMLButtonElement>;
   buttonColor?:
     | 'inherit'
     | 'secondary'
@@ -21,6 +22,7 @@ export const DisplayCard = (props: DisplayCardProps): JSX.Element => {
     paddingX,
     paddingY,
     buttonColor,
+    buttonOnClick,
     ...attr
   } = props;
 
@@ -38,6 +40,9 @@ export const DisplayCard = (props: DisplayCardProps): JSX.Element => {
         <Button
           size='large'
           variant='contained'
+          onClick={(x) => {
+            if (buttonOnClick !== undefined) buttonOnClick(x);
+          }}
           color={buttonColor}
           sx={{
             borderRadius: '2rem',

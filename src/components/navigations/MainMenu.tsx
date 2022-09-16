@@ -4,7 +4,6 @@ import { getSortedRoutes } from '@libs/getSortedRoutes';
 import { useAtomValue } from 'jotai';
 import { menuWidth, isMenuOpenAtom } from '@store';
 import { MenuItem } from './parts/MenuItem';
-import { grey } from '@mui/material/colors';
 
 export const MainMenu = (): JSX.Element => {
   const menuState = useAtomValue(isMenuOpenAtom);

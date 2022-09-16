@@ -20,18 +20,20 @@ export const Row = ({ ...props }: RowProps): JSX.Element => {
     : children;
 
   return (
-    <Box
-      paddingX={'3rem'}
-      {...attr}
-      display='flex'
-      flexWrap={'wrap'}
-      justifyContent={
-        React.Children.count(editedChildren) === 1 ? 'center' : justifyContent
-      }
-    >
-      {hideOnMobile !== undefined && Array.isArray(editedChildren)
-        ? setHideOnMobile(editedChildren, hideOnMobile)
-        : editedChildren}
-    </Box>
+    <div id={id}>
+      <Box
+        paddingX={['1rem', '3rem']}
+        {...attr}
+        display='flex'
+        flexWrap={'wrap'}
+        justifyContent={
+          React.Children.count(editedChildren) === 1 ? 'center' : justifyContent
+        }
+      >
+        {hideOnMobile !== undefined && Array.isArray(editedChildren)
+          ? setHideOnMobile(editedChildren, hideOnMobile)
+          : editedChildren}
+      </Box>
+    </div>
   );
 };

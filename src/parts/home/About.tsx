@@ -1,14 +1,16 @@
 import { Box, Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import { DisplayCard, Row } from '@components';
+import { scrollTo } from '@libs/scrollTo';
 
 const Proclamation = (): JSX.Element => {
   return (
     <DisplayCard
       useCardPadding
-      buttonText='About Us'
+      buttonText='Join Us'
       buttonColor='secondary'
       flexBasis={'50%'}
+      onClick={() => scrollTo({ id: 'shoutout', ref: null })}
     >
       <Typography
         variant='h2'
@@ -22,8 +24,7 @@ const Proclamation = (): JSX.Element => {
       </Typography>
       <Box>
         <Typography variant='body1' fontSize='1.2rem' marginBottom='1rem'>
-          We&#39;re a newbie game studio in Indonesia striving to weave good and
-          fun experiences.
+          We do hereby declare our own game team.
         </Typography>
         <Typography variant='body1' fontSize='1.2rem'>
           Matters concerning the development of games, etc., will be carried out
@@ -32,7 +33,7 @@ const Proclamation = (): JSX.Element => {
       </Box>
       <Box textAlign='right' width={'100%'} marginTop='3rem'>
         <Typography variant='body1' fontSize='1.1rem'>
-          Jakarta, Day 17 Month 9 Year 2022.
+          Jakarta, Day 17 Month 8 Year 2022.
         </Typography>
         <Typography
           variant='body1'
@@ -40,7 +41,7 @@ const Proclamation = (): JSX.Element => {
           marginTop='2rem'
           fontWeight={'600'}
         >
-          SP45_
+          Spirit45
         </Typography>
       </Box>
     </DisplayCard>

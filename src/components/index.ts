@@ -10,3 +10,4 @@ export { RowImageBox } from './blocks/RowImageBox';
 export { Logo } from './misc/Logo';
 export { Loader } from './misc/Loader';
 export { Polaroid } from './misc/Polaroid';
+export { MailTo } from './misc/MailTo';
