@@ -24,7 +24,7 @@ const Proclamation = (): JSX.Element => {
       </Typography>
       <Box>
         <Typography variant='body1' fontSize='1.2rem' marginBottom='1rem'>
-          We do hereby declare our own game team.
+          We do hereby declare the establishment of our game studio.
         </Typography>
         <Typography variant='body1' fontSize='1.2rem'>
           Matters concerning the development of games, etc., will be carried out

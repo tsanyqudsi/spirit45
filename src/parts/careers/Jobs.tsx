@@ -5,11 +5,15 @@ import {
   Typography,
   AccordionDetails,
   AccordionProps,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
 } from '@mui/material';
-import { ExpandMore } from '@mui/icons-material';
+import { ExpandMore, Folder } from '@mui/icons-material';
 import { Row } from '@components';
 import { jobs } from '@store';
-import { grey } from '@mui/material/colors';
+import { blue } from '@mui/material/colors';
 
 interface JobProps extends Omit<AccordionProps, 'children'> {
   position: string;
@@ -29,7 +33,7 @@ const Job = (props: JobProps): JSX.Element => {
     ...attr
   } = props;
   return (
-    <Accordion {...attr} sx={{ width: '100%', backgroundColor: grey[900] }}>
+    <Accordion {...attr} sx={{ width: '100%', backgroundColor: blue[900] }}>
       <AccordionSummary
         expandIcon={<ExpandMore />}
         aria-controls={`panel${index}bh-content`}
@@ -42,25 +46,32 @@ const Job = (props: JobProps): JSX.Element => {
       </AccordionSummary>
       <AccordionDetails>
         <Typography color={'white'}>Requirements</Typography>
-        <ul>
+        <List dense>
           {responsibilities.map((responsibility, index) => {
             return (
-              <li key={`requirements-${position}-${index}`}>
-                {responsibility}
-              </li>
+              <ListItem key={`qualifications-${position}-${index}`}>
+                <ListItemIcon>
+                  <Folder />
+                </ListItemIcon>
+                <ListItemText primary={responsibility} />
+              </ListItem>
             );
           })}
-        </ul>
+        </List>
+
         <Typography color={'white'}>Qualifications</Typography>
-        <ul>
+        <List dense>
           {qualifications.map((qualification, index) => {
             return (
-              <li key={`qualifications-${position}-${index}`}>
-                {qualification}
-              </li>
+              <ListItem key={`qualifications-${position}-${index}`}>
+                <ListItemIcon>
+                  <Folder />
+                </ListItemIcon>
+                <ListItemText primary={qualification} />
+              </ListItem>
             );
           })}
-        </ul>
+        </List>
       </AccordionDetails>
     </Accordion>
   );

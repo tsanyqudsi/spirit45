@@ -10,17 +10,33 @@ interface MenuItemProps {
   isExcluded?: boolean;
   useChildren?: boolean;
   colors?: string;
+  useAnchor?: boolean;
+  customRoutes?: string[];
 }
 
+const customRoutes = (
+  routes: sp45_RouteObject[],
+  customRoutes: string[] | undefined
+): sp45_RouteObject[] => {
+  if (customRoutes !== undefined && customRoutes.length > 0)
+    return customRoutes.map((route) => {
+      return {
+        path: `/${route}`,
+        name: route,
+      };
+    });
+  return routes;
+};
+
 const getMenuItems = (params: MenuItemProps): React.ReactNode => {
-  return params.routes.map((route) => {
+  return customRoutes(params.routes, params.customRoutes).map((route) => {
     if (
       route.name !== undefined &&
       isPathIncluded(route.path, params.checkers, params.isExcluded).length ===
         0
     ) {
-      if (params.useChildren === true) {
-      }
+      // if (params.useChildren === true) {
+      // }
       const path =
         route.name.toLowerCase() !== 'home'
           ? `/${route.name.toLowerCase()}`
@@ -28,7 +44,17 @@ const getMenuItems = (params: MenuItemProps): React.ReactNode => {
       return (
         <Link
           component={RouterLink}
-          to={path}
+          to={
+            params.useAnchor === true
+              ? {
+                  pathname: '/',
+                  hash:
+                    route.name.toLowerCase() !== 'home'
+                      ? `#${route.name.toLowerCase()}`
+                      : undefined,
+                }
+              : path
+          }
           key={`route-to-${route.name}`}
           sx={{
             textDecoration: 'none',
@@ -66,6 +92,8 @@ export const MenuItem = (props: MenuItemProps): JSX.Element => {
         useChildren,
         checkers: attr.checkers,
         colors: attr.colors,
+        useAnchor: attr.useAnchor,
+        customRoutes: attr.customRoutes,
       })}
     </MenuList>
   );

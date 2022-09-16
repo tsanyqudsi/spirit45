@@ -32,7 +32,9 @@ export const MainMenu = (): JSX.Element => {
       <MenuItem
         routes={sortedRoutes}
         checkers={['policies', 'careers', 'games']}
-        isExcluded={true}
+        isExcluded
+        useAnchor
+        customRoutes={['home', 'about', 'shoutout']}
       />
       {/* <MenuItem
         routes={sortedRoutes}
