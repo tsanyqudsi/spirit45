@@ -44,6 +44,7 @@ const getMenuItems = (params: MenuItemProps): React.ReactNode => {
       return (
         <Link
           component={RouterLink}
+          replace
           to={
             params.useAnchor === true
               ? {

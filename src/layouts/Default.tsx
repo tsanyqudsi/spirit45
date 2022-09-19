@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Box, useTheme } from '@mui/material';
 import { useAtomValue } from 'jotai';
 import { isMenuOpenAtom, menuWidth } from '@store';
@@ -9,8 +10,17 @@ interface DefaultProps {
 
 export const Default = (props: DefaultProps): JSX.Element => {
   const menuIsOpen = useAtomValue(isMenuOpenAtom);
-
   const theme = useTheme();
+
+  React.useLayoutEffect(() => {
+    const anchor = window.location.hash.slice(1);
+    if (anchor !== undefined) {
+      const anchorEl = document.getElementById(anchor);
+      if (anchorEl !== null) {
+        anchorEl.scrollIntoView();
+      }
+    }
+  }, []);
 
   return (
     <Box

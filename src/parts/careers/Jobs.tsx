@@ -49,7 +49,10 @@ const Job = (props: JobProps): JSX.Element => {
         <List dense>
           {responsibilities.map((responsibility, index) => {
             return (
-              <ListItem key={`qualifications-${position}-${index}`}>
+              <ListItem
+                color='white'
+                key={`qualifications-${position}-${index}`}
+              >
                 <ListItemIcon>
                   <Folder />
                 </ListItemIcon>
