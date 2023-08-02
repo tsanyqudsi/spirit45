@@ -1,1 +1,1 @@
-import '@fontsource/montserrat/variable.css';
+import '@fontsource/montserrat';
